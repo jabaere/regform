@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+  <body >
+    <div id = "nav-bar">
+
+    <div id= "nav-bar-icon">
+        <img src="assets/Group 767.svg"></img>
+    </div>
+
+
+
+
+
+      <div id = "menu">
+         <div id="sub-menu">
+        <div class="names">ჩვენზე</div>
+        <div class="names">თემები</div>
+        <div class="names">რესურსები</div>
+         </div>
+        <div id="burger-menu">
+        
+        
+          <a href="javascript:void(0);"  onclick="myFunction()">
+    <img src="assets/menu.png"></img>
+  </a>
+        </div>
+        <div id="nav-button">
+        <div id="button-icon">
+        <img href="assets/Icon metro-user.svg"></img>
+        </div>
+        <div id="text">შესვლა</div>
+        
+        </div>
+        <div id="search"><img src="assets/Icon feather-search.svg"></img></div>
+        </div>
+     
+    </div>
+    <div id="bottom-menu-first">მთავარი</div>
+    <div id="bottom-menu-connect"> 	
+      &#8250;</div>
+    <div id="bottom-menu-second">რეგისტრაცია</div>
+    
+
+
+    
+    <div id ="container">
+    <div id = "form-header">რეგისტრაცია</div>
+    <p id="form-header-note">ავტორიზაცია შესაძლებელია მხოლოდ განმანათლებლებისთვის</p>
+    <div id = "form">
+    <form onsubmit="onSubmit(this)">
+      <label for="region" id="region-label">რეგიონი <span style="color:#E74C3C;">*</span></label>
+      
+      <select name="region" id="region" >
+        <option value="" disabled selected hidden>აირჩიეთ რეგიონი&hellip;</option>
+        <option value="1">თბილისი</option>
+        <option value="2">აფხაზეთი</option>
+        <option value="3">აჭარა</option>
+        <option value="4">გურია</option>
+        <option value="5">იმერეთი</option>
+        <option value="6">კახეთი</option>
+        <option value="7">მცხეთა-მთიანეთი</option>
+        <option value="8">რაჭა-ლეჩხუმი და ქვემო სვანეთი</option>
+        <option value="9">სამეგრელო-ზემო სვანეთი</option>
+        <option value="10">სამცხე-ჯავახეთი</option>
+        <option value="11">ქვემო ქართლი</option>
+        <option value="12">შიდა ქართლი</option>
+      </select>
+      <label for="input-position" id="input-position-label">პოზიცია <span style="color:#E74C3C;">*</span></label>
+      
+      
+      <div class="select"></div>
+        
+        
+      <select name="input-position" id="input-position" onchange="addOtherInput(this)">
+      <option value="" disabled selected hidden>აირჩიე პოზიცია&hellip;</option>
+      <option value="1">მასწავლებელი</option>
+      <option value="2">სამართალდამცავი</option>
+      <option value="3">სხვა</option>
+      </select>
+      <label for="other" id="other-label">სხვა პოზიცია<span style="color:#E74C3C;">*</span></label>
+      <input id="other">
+      <label for="job" id="job-label">სამუშაო ადგილი</label>
+      <input id="job" type="text">
+      <label for="email" id="email-label">ელ.ფოსტა<span style="color:#E74C3C;">*</span></label>
+      <input id="email" type="email">
+       <label for="user-name" id="user-name-label">სახელი <span style="color:#E74C3C;">*</span></label>
+      <input id="user-name">
+      <p id="warning-message-user"></p>
+      <label for="user-surname" id="user-surname-label">გვარი <span style="color:#E74C3C;">*</span></label>
+      <input id="user-surname">
+      <label for="user-password" id="user-password-label">პაროლი<span style="color:#E74C3C;">*</span></label>
+      <input type="password" id="user-password" onchange="passChange()" minlength="6" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"> 
+      <p id="warning-message-pass"></p>
+      <img onclick="showHidePass()" id="pass-eye" src="assets/Icon feather-eye.svg"></img>
+
+      <label for="user-password-repeat" id="user-password-repeat-label">გაიმეორეთ პაროლი<span style="color:#E74C3C;">*</span></label>
+      <input type="text" id="user-password-repeat">
+      <img onclick="showHidePassRepeat()" id="pass-eye-repeat" src="assets/Group 768.svg"></img>
+      <label for="checkbox-agreement" id="agreement">ვეთახმები პლატფორმის <a href="#" id="agreement2">მოხმარების პირობებს</a></label>
+      <label for="checkbox-introduction" id="introduction">გავეცანი <a href="#" id="agreement2">კონფიდენციალურობის პოლიტიკას </a></label>
+      <input type="checkbox" id="checkbox-agreement">
+      <span id=""></span>
+      <input type="checkbox" id="checkbox-introduction" checked>
+      <span id=""></span>
+      <button onclick="nameValidation(event)" type="submit" id="submit-button"><span id="button-value">რეგისტრაცია</span></button>
+    </form>
+    <div id="pop-up" >
+
+    </div>
+      <p id="warning"></p>
+      <div id="or">
+
+        <p id="or-line-left"></p>
+        <p id="or-value">ან</p>
+        <p id="or-line-right"></p>
+      </div>
+    </div>
+
+      <button type="submit" id="facebook-submit-button"><span id="button-facebook-value">რეგისტრაცია Facebook-ით</span></button>
+      <span id="facebook-icon"></span>
+      <button type="submit" id="google-submit-button"><span id="button-google-value">რეგისტრაცია Gmail-ით</span></button>
+      <span id="google-icon"></span>
+      <p id="already-registered">უკვე რეგისტრირებული ხართ? <span id="already-registered-link">მიყევით ამ ბმულს </span><span id="already-registered-arrow">&#8599;</span> </p>
+    
+    </div>
+  </div>
+
+  <footer>
+   <div id="info">
+   <span id="info-1">
+    info@school.ge
+   </span>
+   <span id="info-2-border"></span>
+   <span id="footer-social-icon-facebook"></span>
+   <span id="footer-social-icon-youtube"></span>
+   <span id="info-3">მოხმარების პირობები</span>
+   <span id="info-3-border"></span>
+   <span id="info-4">კონფიდენციალურობა</span>
+   <span id="info-4-border"></span>
+   <span id="info-5">© 2021 ყველა უფლება დაცულია</span>
+   </div>
+  </footer>
+    <script src="script.js"></script>
+
+  </body>
+</html>
